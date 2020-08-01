@@ -1,0 +1,21 @@
+package cn.itcast.service.service;
+
+import cn.itcast.service.mapper.UserMapper;
+import cn.itcast.service.pojo.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * @author kpwang
+ * @create 2020-07-31 1:21
+ */
+@Service
+public class UserService {
+    @Autowired
+    private UserMapper userMapper;
+
+    public User queryUserById(Long id){
+        return this.userMapper.selectByPrimaryKey(id);
+    }
+
+}

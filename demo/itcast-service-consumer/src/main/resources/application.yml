@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: service-consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    fetch-registry: true
+    registry-fetch-interval-seconds: 5
+feign:
+  hystrix:
+    enabled: true  #开启熔断
