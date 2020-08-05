@@ -6,7 +6,10 @@
 	<groupId>cn.itcast.eureka</groupId>
 	<artifactId>itcast-eureka</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+    <modules>
+        <module>../itcast-elasticsearch</module>
+    </modules>
+    <packaging>pom</packaging>
 
 	<name>itcast-eureka</name>
 	<description>Demo project for Spring Boot</description>

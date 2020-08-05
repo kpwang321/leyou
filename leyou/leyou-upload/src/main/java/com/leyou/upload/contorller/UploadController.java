@@ -23,6 +23,7 @@ public class UploadController {
     @PostMapping("image")
     public ResponseEntity<String> uploadImage(@RequestParam("file")MultipartFile file){
        String url= this.uploadService.uploadImage(file);
+        System.out.println(url);
        if (StringUtils.isBlank(url)){
            return ResponseEntity.badRequest().build();
        }

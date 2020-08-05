@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="itcast-eureka" />
+        <module name="itcast-elasticsearch" />
         <module name="itcast-eureka1" />
         <module name="itcast-service-consumer" />
         <module name="itcast-service-provider" />
@@ -16,6 +16,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="itcast-elasticsearch" target="1.8" />
       <module name="itcast-eureka" target="1.8" />
       <module name="itcast-eureka1" target="1.8" />
       <module name="itcast-service-consumer" target="1.8" />
