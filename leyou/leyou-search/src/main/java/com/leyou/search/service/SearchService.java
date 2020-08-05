@@ -2,15 +2,24 @@ package com.leyou.search.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.leyou.common.pojo.PageResult;
 import com.leyou.item.pojo.*;
 import com.leyou.search.client.BrandClient;
 import com.leyou.search.client.CategoryClient;
 import com.leyou.search.client.GoodsClient;
 import com.leyou.search.client.SpecificationClient;
 import com.leyou.search.pojo.Goods;
+import com.leyou.search.pojo.SearchRequest;
+import com.leyou.search.repository.GoodsRepository;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
+import org.elasticsearch.index.query.Operator;
+import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.elasticsearch.core.query.FetchSourceFilter;
+import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -30,6 +39,8 @@ public class SearchService {
     private GoodsClient goodsClient;
     @Autowired
     private SpecificationClient specificationClient;
+    @Autowired
+    private GoodsRepository goodsRepository;
 
     private static  final ObjectMapper MAPPER=new ObjectMapper();
     public Goods buildGoods(Spu spu) throws IOException {
@@ -101,6 +112,26 @@ public class SearchService {
         return goods;
 
     }
+
+
+    public PageResult<Goods> search(SearchRequest request) {
+        if (StringUtils.isBlank(request.getKey())){
+            return null;
+        }
+        //自定义查询构造器
+        NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
+        //添加查询条件
+        queryBuilder.withQuery(QueryBuilders.matchQuery("all",request.getKey()).operator(Operator.AND));
+        //添加分页
+        queryBuilder.withPageable(PageRequest.of(request.getPage()-1,request.getSize()));
+        //添加结果集过滤
+        queryBuilder.withSourceFilter(new FetchSourceFilter(new String[]{"id","skus","subTitle"},null));
+        //执行查询获取结果集
+        Page<Goods> goodsPage = this.goodsRepository.search(queryBuilder.build());
+        return new PageResult<>(goodsPage.getTotalElements(),goodsPage.getTotalPages(),goodsPage.getContent());
+    }
+
+
     private String chooseSegment(String value, SpecParam p) {
         double val = NumberUtils.toDouble(value);
         String result = "其它";
