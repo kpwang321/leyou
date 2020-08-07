@@ -1,0 +1,6 @@
+spring:
+  rabbitmq:
+    host: 192.168.154.135
+    username: kpwang
+    password: ww920321
+    virtual-host: /leyou
