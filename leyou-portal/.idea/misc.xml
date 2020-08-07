@@ -3,6 +3,13 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="F:/BaiduNetdiskDownload/11.乐优商城(微服务电商)/leyou/day16-用户注册(阿里大于及hibernate-validate)/资料/资料/阿里短信/dysms-demo/pom.xml" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

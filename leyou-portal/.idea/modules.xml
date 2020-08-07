@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://F:/BaiduNetdiskDownload/11.乐优商城(微服务电商)/leyou/day16-用户注册(阿里大于及hibernate-validate)/资料/资料/阿里短信/dysms-demo/dysms-demo.iml" filepath="F:/BaiduNetdiskDownload/11.乐优商城(微服务电商)/leyou/day16-用户注册(阿里大于及hibernate-validate)/资料/资料/阿里短信/dysms-demo/dysms-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/leyou-portal.iml" filepath="$PROJECT_DIR$/leyou-portal.iml" />
     </modules>
   </component>
