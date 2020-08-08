@@ -1,0 +1,16 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: sms-service
+  rabbitmq:
+    host: 192.168.154.135
+    virtual-host: /leyou
+    username: kpwang
+    password: ww920321
+leyou:
+  sms:
+    accessKeyId: LTAI4GALxzAxi82j2P1jQC7J # 你自己的accessKeyId
+    accessKeySecret: kT6DR3nESDzg7yoOHnFPZPSKZvlnh3 # 你自己的AccessKeySecret
+    signName: kpwang # 签名名称
+    verifyCodeTemplate: SMS_199195934 # 模板名称

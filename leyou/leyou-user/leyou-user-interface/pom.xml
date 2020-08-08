@@ -27,6 +27,11 @@
             <artifactId>leyou-common</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.8.Final</version>
+        </dependency>
     </dependencies>
 
 
