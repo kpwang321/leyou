@@ -4,11 +4,11 @@ spring:
   application:
     name: item-service
   datasource:
-    url: jdbc:mysql://192.168.154.129:3306/leyou?characterEncoding=utf-8
+    url: jdbc:mysql://192.168.154.137:3306/leyou?characterEncoding=utf-8
     username: root
     password: root
   rabbitmq:
-    host: 192.168.154.135
+    host: 192.168.154.137
     virtual-host: /leyou
     username: kpwang
     password: ww920321
